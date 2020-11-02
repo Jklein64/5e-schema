@@ -1,0 +1,27 @@
+---
+monster:
+  - name: thing
+    ac:
+      - ac: 15
+        from:
+          - Unarmored defense
+    action:
+      - name: attack
+        entries:
+          - Do something lol
+    cr: "21"
+    size: L
+    type:
+      type: plant
+    source: Uranus
+    hp:
+      formula: 1d4
+      average: 3
+    passive: 0
+    str: 10
+    dex: 10
+    con: 10
+    int: 10
+    wis: 10
+    cha: 10
+    speed: 30
