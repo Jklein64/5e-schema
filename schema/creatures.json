@@ -2,7 +2,7 @@
 	"$schema": "http://json-schema.org/draft-07/schema#",
 	"version": "1.15.1",
 	"title": "Bestiary Schema",
-	"$id": "bestiary.json",
+	"$id": "creatures.json",
 	"type": "object",
 	"definitions": {
 		"align": {

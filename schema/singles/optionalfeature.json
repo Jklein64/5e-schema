@@ -1,0 +1,8 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "optionalfeature.json",
+
+	"title": "Optional Feature",
+	"type": "object",
+	"$ref": "./../optionalfeatures.json#/definitions/optionalfeature"
+}

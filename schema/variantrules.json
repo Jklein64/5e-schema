@@ -7,7 +7,7 @@
 	"properties": {
 		"variantrule": {
 			"type": "array",
-			"items": {"$ref": "#/definitions/variantrule"}
+			"items": { "$ref": "#/definitions/variantrule" }
 		}
 	},
 	"additionalProperties": false,
@@ -42,11 +42,7 @@
 					"$ref": "util.json#/definitions/srd"
 				}
 			},
-			"required": [
-				"name",
-				"entries",
-				"source"
-			],
+			"required": ["name", "entries", "source"],
 			"additionalProperties": false
 		}
 	}

@@ -1,0 +1,8 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "vehicle.json",
+
+	"title": "vehicle",
+	"type": "object",
+	"$ref": "./../vehicles.json#/definitions/vehicle"
+}

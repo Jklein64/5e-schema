@@ -1,0 +1,8 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "race.json",
+
+	"title": "Race",
+	"type": "object",
+	"$ref": "./../races.json#/definitions/race"
+}
