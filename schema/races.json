@@ -221,6 +221,9 @@
 				},
 				"additionalSpells": {
 					"$ref": "util.json#/definitions/additionalSpellsArray"
+				},
+				"_copy": {
+					"$ref": "util.json#/definitions/innerCopyBlock"
 				}
 			},
 			"additionalProperties": false
@@ -316,44 +319,33 @@
 		"heightAndWeight": {
 			"type": "object",
 			"properties": {
-				"baseHeight":  {"type": "integer"},
-				"heightMod": {"type": "string"},
-				"baseWeight":  {"type": "integer"},
-				"weightMod": {"type": "string"}
+				"baseHeight": { "type": "integer" },
+				"heightMod": { "type": "string" },
+				"baseWeight": { "type": "integer" },
+				"weightMod": { "type": "string" }
 			},
-			"required": [
-				"baseHeight",
-				"heightMod",
-				"baseWeight"
-			],
+			"required": ["baseHeight", "heightMod", "baseWeight"],
 			"additionalProperties": false
 		},
 
 		"race": {
-			"anyOf": [
+			"oneOf": [
 				{
 					"type": "object",
-					"$$merge": [
+					"allOf": [
 						{
 							"$ref": "#/definitions/raceData"
 						},
-						{
-							"required": [
-								"name",
-								"source"
-							]
-						}
+						{ "required": ["name", "source"] }
 					]
 				},
 				{
 					"type": "object",
-					"$$merge": [
+					"allOf": [
 						{
 							"$ref": "#/definitions/raceData"
 						},
-						{
-							"$ref": "util.json#/definitions/copyBlock"
-						}
+						{ "required": ["_copy"] }
 					]
 				}
 			]

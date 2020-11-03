@@ -780,6 +780,9 @@
 							"$ref": "entry.json"
 						}
 					}
+				},
+				"_copy": {
+					"$ref": "util.json#/definitions/innerCopyBlock"
 				}
 			},
 			"additionalProperties": false
@@ -788,10 +791,10 @@
 		"genericFluffArray": {
 			"type": "array",
 			"items": {
-				"anyOf": [
+				"oneOf": [
 					{
 						"type": "object",
-						"$$merge": [
+						"allOf": [
 							{
 								"$ref": "#/definitions/genericFluffArrayItemData"
 							},
@@ -802,13 +805,12 @@
 					},
 					{
 						"type": "object",
-						"$comment": "This is a custom pre-processor tag, which merges together the array of objects into one. This allows proper inheritance, which JSON schema don't really do.",
-						"$$merge": [
+						"allOf": [
 							{
 								"$ref": "#/definitions/genericFluffArrayItemData"
 							},
 							{
-								"$ref": "util.json#/definitions/copyBlock"
+								"required": ["_copy"]
 							}
 						]
 					}
@@ -1024,56 +1026,60 @@
 			]
 		},
 
-		"copyBlock": {
+		"innerCopyBlock": {
+			"type": "object",
 			"properties": {
-				"_copy": {
+				"name": { "type": "string" },
+				"source": { "type": "string" },
+
+				"pantheon": { "description": "Used in deity data", "type": "string" },
+
+				"_mod": {
+					"type": "object",
+					"patternProperties": {
+						".*": {
+							"anyOf": [
+								{
+									"type": "string"
+								},
+								{
+									"$ref": "util.json#/definitions/copyModifier"
+								},
+								{
+									"type": "array",
+									"items": {
+										"$ref": "util.json#/definitions/copyModifier"
+									}
+								}
+							]
+						}
+					}
+				},
+				"_trait": {
 					"type": "object",
 					"properties": {
 						"name": { "type": "string" },
-						"source": { "type": "string" },
-
-						"pantheon": { "description": "Used in deity data", "type": "string" },
-
-						"_mod": {
-							"type": "object",
-							"patternProperties": {
-								".*": {
-									"anyOf": [
-										{
-											"type": "string"
-										},
-										{
-											"$ref": "util.json#/definitions/copyModifier"
-										},
-										{
-											"type": "array",
-											"items": {
-												"$ref": "util.json#/definitions/copyModifier"
-											}
-										}
-									]
-								}
-							}
-						},
-						"_trait": {
-							"type": "object",
-							"properties": {
-								"name": { "type": "string" },
-								"source": { "type": "string" }
-							},
-							"required": ["name", "source"]
-						},
-						"_preserve": {
-							"type": "object",
-							"patternProperties": {
-								".*": {
-									"type": "boolean"
-								}
-							}
-						}
+						"source": { "type": "string" }
 					},
-					"required": ["name", "source"],
-					"additionalProperties": false
+					"required": ["name", "source"]
+				},
+				"_preserve": {
+					"type": "object",
+					"patternProperties": {
+						".*": {
+							"type": "boolean"
+						}
+					}
+				}
+			},
+			"required": ["name", "source"],
+			"additionalProperties": false
+		},
+
+		"copyBlock": {
+			"properties": {
+				"_copy": {
+					"$ref": "#/definitions/innerCopyBlock"
 				}
 			},
 			"required": ["_copy"]

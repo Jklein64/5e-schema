@@ -16,17 +16,7 @@
 				},
 				"school": {
 					"type": "string",
-					"enum": [
-						"A",
-						"V",
-						"E",
-						"I",
-						"D",
-						"N",
-						"T",
-						"C",
-						"P"
-					]
+					"enum": ["A", "V", "E", "I", "D", "N", "T", "C", "P"]
 				},
 				"subschools": {
 					"description": "For homebrew use only.",
@@ -75,15 +65,7 @@
 							"properties": {
 								"type": {
 									"type": "string",
-									"enum": [
-										"feet",
-										"miles",
-										"self",
-										"touch",
-										"unlimited",
-										"plane",
-										"sight"
-									]
+									"enum": ["feet", "miles", "self", "touch", "unlimited", "plane", "sight"]
 								},
 								"amount": {
 									"type": "integer"
@@ -91,30 +73,18 @@
 								"typeSecondary": {
 									"description": "Homebrew only",
 									"type": "string",
-									"enum": [
-										"feet",
-										"miles",
-										"self",
-										"touch",
-										"unlimited",
-										"plane",
-										"sight"
-									]
+									"enum": ["feet", "miles", "self", "touch", "unlimited", "plane", "sight"]
 								},
 								"amountSecondary": {
 									"description": "Homebrew only",
 									"type": "integer"
 								}
 							},
-							"required": [
-								"type"
-							],
+							"required": ["type"],
 							"additionalProperties": false
 						}
 					},
-					"required": [
-						"type"
-					],
+					"required": ["type"],
 					"additionalProperties": false
 				},
 				"components": {
@@ -142,11 +112,8 @@
 											"type": "boolean"
 										}
 									},
-									"required": [
-										"text"
-									],
+									"required": ["text"],
 									"additionalProperties": false
-
 								},
 								{
 									"type": ["boolean", "string"]
@@ -162,7 +129,7 @@
 				},
 				"duration": {
 					"type": "array",
-					"items": {"$ref": "#/definitions/duration"}
+					"items": { "$ref": "#/definitions/duration" }
 				},
 				"entries": {
 					"type": "array",
@@ -212,17 +179,11 @@
 												"type": "string"
 											}
 										},
-										"required": [
-											"name",
-											"source"
-										],
+										"required": ["name", "source"],
 										"additionalProperties": false
 									}
 								},
-								"required": [
-									"class",
-									"subclass"
-								],
+								"required": ["class", "subclass"],
 								"additionalProperties": false
 							}
 						}
@@ -280,7 +241,19 @@
 					"items": {
 						"type": "string",
 						"enum": [
-							"acid", "bludgeoning", "cold", "fire", "force", "lightning", "necrotic", "piercing", "poison", "psychic", "radiant", "slashing", "thunder"
+							"acid",
+							"bludgeoning",
+							"cold",
+							"fire",
+							"force",
+							"lightning",
+							"necrotic",
+							"piercing",
+							"poison",
+							"psychic",
+							"radiant",
+							"slashing",
+							"thunder"
 						]
 					}
 				},
@@ -290,7 +263,19 @@
 					"items": {
 						"type": "string",
 						"enum": [
-							"acid", "bludgeoning", "cold", "fire", "force", "lightning", "necrotic", "piercing", "poison", "psychic", "radiant", "slashing", "thunder"
+							"acid",
+							"bludgeoning",
+							"cold",
+							"fire",
+							"force",
+							"lightning",
+							"necrotic",
+							"piercing",
+							"poison",
+							"psychic",
+							"radiant",
+							"slashing",
+							"thunder"
 						]
 					}
 				},
@@ -300,7 +285,19 @@
 					"items": {
 						"type": "string",
 						"enum": [
-							"acid", "bludgeoning", "cold", "fire", "force", "lightning", "necrotic", "piercing", "poison", "psychic", "radiant", "slashing", "thunder"
+							"acid",
+							"bludgeoning",
+							"cold",
+							"fire",
+							"force",
+							"lightning",
+							"necrotic",
+							"piercing",
+							"poison",
+							"psychic",
+							"radiant",
+							"slashing",
+							"thunder"
 						]
 					}
 				},
@@ -310,7 +307,19 @@
 					"items": {
 						"type": "string",
 						"enum": [
-							"acid", "bludgeoning", "cold", "fire", "force", "lightning", "necrotic", "piercing", "poison", "psychic", "radiant", "slashing", "thunder"
+							"acid",
+							"bludgeoning",
+							"cold",
+							"fire",
+							"force",
+							"lightning",
+							"necrotic",
+							"piercing",
+							"poison",
+							"psychic",
+							"radiant",
+							"slashing",
+							"thunder"
 						]
 					}
 				},
@@ -322,9 +331,7 @@
 					"uniqueItems": true,
 					"items": {
 						"type": "string",
-						"enum": [
-							"strength", "constitution", "dexterity", "intelligence", "wisdom", "charisma"
-						]
+						"enum": ["strength", "constitution", "dexterity", "intelligence", "wisdom", "charisma"]
 					}
 				},
 				"opposedCheck": {
@@ -332,9 +339,7 @@
 					"uniqueItems": true,
 					"items": {
 						"type": "string",
-						"enum": [
-							"strength", "constitution", "dexterity", "intelligence", "wisdom", "charisma"
-						]
+						"enum": ["strength", "constitution", "dexterity", "intelligence", "wisdom", "charisma"]
 					}
 				},
 				"spellAttack": {
@@ -342,9 +347,7 @@
 					"uniqueItems": true,
 					"items": {
 						"type": "string",
-						"enum": [
-							"M", "R", "O"
-						]
+						"enum": ["M", "R", "O"]
 					}
 				},
 				"areaTags": {
@@ -353,7 +356,7 @@
 					"uniqueItems": true,
 					"items": {
 						"type": "string",
-						"enum": ["ST", "MT", "R", "N", "C","Y", "H", "L", "S", "Q", "W"]
+						"enum": ["ST", "MT", "R", "N", "C", "Y", "H", "L", "S", "Q", "W"]
 					}
 				},
 				"miscTags": {
@@ -380,41 +383,35 @@
 							"$ref": "#/definitions/scalingLevelDiceItem"
 						}
 					]
+				},
+				"_copy": {
+					"$ref": "util.json#/definitions/innerCopyBlock"
 				}
 			},
 			"additionalProperties": false
 		},
 
 		"spell": {
-			"anyOf": [
+			"oneOf": [
 				{
 					"type": "object",
-					"$$merge": [
+					"allOf": [
 						{
 							"$ref": "#/definitions/spellData"
 						},
 						{
-							"required": [
-								"name",
-								"level",
-								"school",
-								"time",
-								"range",
-								"duration",
-								"entries",
-								"source"
-							]
+							"required": ["name", "level", "school", "time", "range", "duration", "entries", "source"]
 						}
 					]
 				},
 				{
 					"type": "object",
-					"$$merge": [
+					"allOf": [
 						{
 							"$ref": "#/definitions/spellData"
 						},
 						{
-							"$ref": "util.json#/definitions/copyBlock"
+							"required": ["_copy"]
 						}
 					]
 				}
@@ -433,9 +430,7 @@
 					"type": "string"
 				}
 			},
-			"required": [
-				"unit"
-			],
+			"required": ["unit"],
 			"additionalProperties": false
 		},
 
@@ -443,27 +438,14 @@
 			"properties": {
 				"type": {
 					"type": "string",
-					"enum": [
-						"instant",
-						"timed",
-						"permanent",
-						"special"
-					]
+					"enum": ["instant", "timed", "permanent", "special"]
 				},
 				"duration": {
 					"type": "object",
 					"properties": {
 						"type": {
 							"type": "string",
-							"enum": [
-								"hour",
-								"minute",
-								"turn",
-								"round",
-								"week",
-								"day",
-								"year"
-							]
+							"enum": ["hour", "minute", "turn", "round", "week", "day", "year"]
 						},
 						"amount": {
 							"type": "integer"
@@ -472,9 +454,7 @@
 							"type": "boolean"
 						}
 					},
-					"required": [
-						"type"
-					],
+					"required": ["type"],
 					"additionalProperties": false
 				},
 				"concentration": {
@@ -491,9 +471,7 @@
 					"type": "string"
 				}
 			},
-			"required": [
-				"type"
-			],
+			"required": ["type"],
 			"additionalProperties": false
 		},
 
@@ -506,10 +484,7 @@
 					"type": "string"
 				}
 			},
-			"required": [
-				"name",
-				"source"
-			],
+			"required": ["name", "source"],
 			"additionalProperties": false
 		},
 
@@ -536,14 +511,12 @@
 	"properties": {
 		"spell": {
 			"type": "array",
-			"items": {"$ref": "#/definitions/spell"}
+			"items": { "$ref": "#/definitions/spell" }
 		},
 		"_meta": {
 			"$ref": "util.json#/definitions/metaBlock"
 		}
 	},
-	"required": [
-		"spell"
-	],
+	"required": ["spell"],
 	"additionalProperties": false
 }

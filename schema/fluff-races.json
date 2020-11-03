@@ -39,34 +39,32 @@
 				},
 				"monstrous": {
 					"type": "boolean"
+				},
+				"_copy": {
+					"$ref": "util.json#/definitions/innerCopyBlock"
 				}
 			},
 			"additionalProperties": false
 		},
 
 		"raceFluff": {
-			"anyOf": [
+			"oneOf": [
 				{
 					"type": "object",
-					"$$merge": [
+					"allOf": [
 						{
 							"$ref": "#/definitions/raceFluffData"
 						},
-						{
-							"required": ["name", "source"]
-						}
+						{ "required": ["name", "source"] }
 					]
 				},
 				{
 					"type": "object",
-					"$comment": "This is a custom pre-processor tag, which merges together the array of objects into one. This allows proper inheritance, which JSON schema don't really do.",
-					"$$merge": [
+					"allOf": [
 						{
 							"$ref": "#/definitions/raceFluffData"
 						},
-						{
-							"$ref": "util.json#/definitions/copyBlock"
-						}
+						{ "required": ["_copy"] }
 					]
 				}
 			]

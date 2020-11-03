@@ -238,19 +238,19 @@
 						"static": {
 							"type": "object"
 						},
-						"str":  {
+						"str": {
 							"type": "integer"
 						},
 						"dex": {
 							"type": "integer"
 						},
-						"con":  {
+						"con": {
 							"type": "integer"
 						},
 						"int": {
 							"type": "integer"
 						},
-						"wis":  {
+						"wis": {
 							"type": "integer"
 						},
 						"cha": {
@@ -389,36 +389,35 @@
 				},
 				"quantity": {
 					"type": "integer"
+				},
+				"_copy": {
+					"$ref": "util.json#/definitions/innerCopyBlock"
 				}
 			},
 			"additionalProperties": false
 		},
 
 		"item": {
-			"anyOf": [
+			"oneOf": [
 				{
 					"type": "object",
-					"$$merge": [
+					"allOf": [
 						{
 							"$ref": "#/definitions/itemData"
 						},
 						{
-							"required": [
-								"name",
-								"rarity",
-								"source"
-							]
+							"required": ["name", "rarity", "source"]
 						}
 					]
 				},
 				{
 					"type": "object",
-					"$$merge": [
+					"allOf": [
 						{
 							"$ref": "#/definitions/itemData"
 						},
 						{
-							"$ref": "util.json#/definitions/copyBlock"
+							"required": ["_copy"]
 						}
 					]
 				}

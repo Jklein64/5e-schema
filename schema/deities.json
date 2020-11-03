@@ -56,7 +56,18 @@
 					"items": {
 						"type": "string",
 						"enum": [
-							"Arcana", "Death", "Knowledge", "Life", "Light", "Nature", "Tempest", "Trickery", "War", "Forge", "Grave", "Order"
+							"Arcana",
+							"Death",
+							"Knowledge",
+							"Life",
+							"Light",
+							"Nature",
+							"Tempest",
+							"Trickery",
+							"War",
+							"Forge",
+							"Grave",
+							"Order"
 						]
 					}
 				},
@@ -100,37 +111,31 @@
 				},
 				"customExtensionOf": {
 					"type": "string"
+				},
+				"_copy": {
+					"$ref": "util.json#/definitions/innerCopyBlock"
 				}
 			},
 			"additionalProperties": false
 		},
 
 		"deity": {
-			"anyOf": [
+			"oneOf": [
 				{
-					"type": "object",
-					"$$merge": [
+					"allOf": [
 						{
 							"$ref": "#/definitions/deityData"
 						},
 						{
-							"required": [
-								"name",
-								"pantheon",
-								"symbol",
-								"source"
-							]
+							"required": ["name", "pantheon", "symbol", "source"]
 						}
 					]
 				},
 				{
-					"type": "object",
-					"$$merge": [
+					"allOf": [
 						{
-							"$ref": "#/definitions/deityData"
-						},
-						{
-							"$ref": "util.json#/definitions/copyBlock"
+							"$ref": "#/definitions/deityData",
+							"required": ["_copy"]
 						}
 					]
 				}

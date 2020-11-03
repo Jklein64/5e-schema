@@ -107,37 +107,35 @@
 				},
 				"otherSources": {
 					"$ref": "util.json#/definitions/otherSources"
+				},
+				"_copy": {
+					"$ref": "util.json#/definitions/innerCopyBlock"
 				}
 			},
 			"additionalProperties": false
 		},
 
 		"background": {
-			"anyOf": [
+			"oneOf": [
 				{
 					"type": "object",
-					"$$merge": [
+					"allOf": [
 						{
 							"$ref": "#/definitions/backgroundData"
 						},
 						{
-							"required": [
-								"name",
-								"source",
-								"skillProficiencies",
-								"entries"
-							]
+							"required": ["name", "source", "skillProficiencies", "entries"]
 						}
 					]
 				},
 				{
 					"type": "object",
-					"$$merge": [
+					"allOf": [
 						{
 							"$ref": "#/definitions/backgroundData"
 						},
 						{
-							"$ref": "util.json#/definitions/copyBlock"
+							"required": ["_copy"]
 						}
 					]
 				}
@@ -157,8 +155,6 @@
 			"$ref": "util.json#/definitions/metaBlock"
 		}
 	},
-	"required": [
-		"background"
-	],
+	"required": ["background"],
 	"additionalProperties": false
 }
