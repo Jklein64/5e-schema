@@ -2,11 +2,11 @@
 
 This is a collection of schemas for use when writing homebrew for [5e.tools](https://5e.tools). They help provide autocomplete when using big brain editors like [VS Code](https://code.visualstudio.com/) (which you should use if you aren't).
 
-[Provides Warnings](./images/feature-warnings.png)
+![Provides Warnings](./images/feature-warnings.png)
 
-[Provides Suggestions](./images/feature-suggestions.png)
+![Provides Suggestions](./images/feature-suggestions.png)
 
-[Provides Type Warnings](./images/feature-types.png)
+![Provides Type Warnings](./images/feature-types.png)
 
 ## Usage
 
