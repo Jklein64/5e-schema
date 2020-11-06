@@ -1,97 +1,97 @@
 {
-	"$schema": "http://json-schema.org/draft-07/schema#",
-	"version": "2.0.0",
-	"type": "object",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "2.0.0",
+  "type": "object",
 
-	"definitions": {
-		"raceFluffData": {
-			"type": "object",
-			"properties": {
-				"name": {
-					"type": "string"
-				},
-				"source": {
-					"type": "string"
-				},
-				"images": {
-					"oneOf": [
-						{
-							"type": "array",
-							"items": {
-								"$ref": "entry.json#/definitions/entryImage"
-							}
-						},
-						{
-							"type": "null"
-						}
-					]
-				},
-				"entries": {
-					"entries": {
-						"type": "array",
-						"items": {
-							"$ref": "entry.json"
-						}
-					}
-				},
-				"uncommon": {
-					"type": "boolean"
-				},
-				"monstrous": {
-					"type": "boolean"
-				},
-				"_copy": {
-					"$ref": "util.json#/definitions/innerCopyBlock"
-				}
-			},
-			"additionalProperties": false
-		},
+  "definitions": {
+    "raceFluffData": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "images": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "entry.json#/definitions/entryImage"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "entries": {
+          "entries": {
+            "type": "array",
+            "items": {
+              "$ref": "entry.json"
+            }
+          }
+        },
+        "uncommon": {
+          "type": "boolean"
+        },
+        "monstrous": {
+          "type": "boolean"
+        },
+        "_copy": {
+          "$ref": "util.json#/definitions/innerCopyBlock"
+        }
+      },
+      "additionalProperties": false
+    },
 
-		"raceFluff": {
-			"oneOf": [
-				{
-					"type": "object",
-					"allOf": [
-						{
-							"$ref": "#/definitions/raceFluffData"
-						},
-						{ "required": ["name", "source"] }
-					]
-				},
-				{
-					"type": "object",
-					"allOf": [
-						{
-							"$ref": "#/definitions/raceFluffData"
-						},
-						{ "required": ["_copy"] }
-					]
-				}
-			]
-		}
-	},
+    "raceFluff": {
+      "oneOf": [
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/definitions/raceFluffData"
+            },
+            { "required": ["name", "source"] }
+          ]
+        },
+        {
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/definitions/raceFluffData"
+            },
+            { "required": ["_copy"] }
+          ]
+        }
+      ]
+    }
+  },
 
-	"properties": {
-		"raceFluff": {
-			"type": "array",
-			"items": {
-				"$ref": "#/definitions/raceFluff"
-			}
-		},
-		"raceFluffMeta": {
-			"type": "object",
-			"properties": {
-				"uncommon": {
-					"$ref": "entry.json"
-				},
-				"monstrous": {
-					"$ref": "entry.json"
-				}
-			}
-		},
-		"_meta": {
-			"$ref": "util.json#/definitions/metaBlock"
-		}
-	},
-	"additionalProperties": false
+  "properties": {
+    "raceFluff": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/raceFluff"
+      }
+    },
+    "raceFluffMeta": {
+      "type": "object",
+      "properties": {
+        "uncommon": {
+          "$ref": "entry.json"
+        },
+        "monstrous": {
+          "$ref": "entry.json"
+        }
+      }
+    },
+    "_meta": {
+      "$ref": "util.json#/definitions/metaBlock"
+    }
+  },
+  "additionalProperties": false
 }

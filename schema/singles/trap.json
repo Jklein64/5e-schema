@@ -1,8 +1,8 @@
 {
-	"$schema": "http://json-schema.org/draft-07/schema#",
-	"$id": "trap.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "trap.json",
 
-	"title": "Trap",
-	"type": "object",
-	"$ref": "./../trapshazards.json#/definitions/trap"
+  "title": "Trap",
+  "type": "object",
+  "$ref": "./../trapshazards.json#/definitions/trap"
 }

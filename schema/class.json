@@ -42,10 +42,7 @@
           }
         }
       },
-      "required": [
-        "colLabels",
-        "rows"
-      ],
+      "required": ["colLabels", "rows"],
       "additionalProperties": false
     },
 
@@ -159,20 +156,17 @@
         "armor": {
           "type": "array",
           "items": {
-            "oneOf": [{
+            "oneOf": [
+              {
                 "type": "string",
-                "enum": [
-                  "light", "medium", "heavy", "shields"
-                ]
+                "enum": ["light", "medium", "heavy", "shields"]
               },
               {
                 "type": "object",
                 "properties": {
                   "proficiency": {
                     "type": "string",
-                    "enum": [
-                      "light", "medium", "heavy", "shields", "special"
-                    ]
+                    "enum": ["light", "medium", "heavy", "shields", "special"]
                   },
                   "full": {
                     "description": "The complete text for this proficiency.",
@@ -229,7 +223,8 @@
         "subclassFeatures": {
           "type": "array",
           "items": {
-            "oneOf": [{
+            "oneOf": [
+              {
                 "type": "string"
               },
               {
@@ -285,12 +280,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "name",
-        "shortName",
-        "subclassFeatures",
-        "source"
-      ],
+      "required": ["name", "shortName", "subclassFeatures", "source"],
       "additionalProperties": false
     },
 
@@ -340,7 +330,6 @@
           "additionalProperties": false
         }
       }
-
     },
 
     "class": {
@@ -372,10 +361,7 @@
               "type": "integer"
             }
           },
-          "required": [
-            "number",
-            "faces"
-          ],
+          "required": ["number", "faces"],
           "additionalProperties": false
         },
         "proficiency": {
@@ -413,10 +399,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "additionalFromBackground",
-            "default"
-          ],
+          "required": ["additionalFromBackground", "default"],
           "additionalProperties": false
         },
         "requirements": {
@@ -449,7 +432,8 @@
         "classFeatures": {
           "type": "array",
           "items": {
-            "oneOf": [{
+            "oneOf": [
+              {
                 "type": "string"
               },
               {
@@ -515,17 +499,14 @@
           }
         }
       },
-      "required": [
-        "name",
-        "source",
-        "classFeatures"
-      ],
+      "required": ["name", "source", "classFeatures"],
       "additionalProperties": false
     },
 
     "spellRef": {
       "description": "A reference to a spell, linked by name and source. Assumes PHB as the source, if none is provided.",
-      "oneOf": [{
+      "oneOf": [
+        {
           "type": "object",
           "properties": {
             "name": {
@@ -535,9 +516,7 @@
               "type": "string"
             }
           },
-          "required": [
-            "name", "source"
-          ]
+          "required": ["name", "source"]
         },
         {
           "type": "string"

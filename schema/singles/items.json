@@ -1,8 +1,8 @@
 {
-	"$schema": "http://json-schema.org/draft-07/schema#",
-	"$id": "item.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "item.json",
 
-	"title": "Item",
-	"type": "object",
-	"$ref": "./../items.json#/definitions/item"
+  "title": "Item",
+  "type": "object",
+  "$ref": "./../items.json#/definitions/item"
 }

@@ -1,8 +1,8 @@
 {
-	"$schema": "http://json-schema.org/draft-07/schema#",
-	"$id": "variantrule.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "variantrule.json",
 
-	"title": "Variant Rule",
-	"type": "object",
-	"$ref": "./../variantrules.json#/definitions/variantrule"
+  "title": "Variant Rule",
+  "type": "object",
+  "$ref": "./../variantrules.json#/definitions/variantrule"
 }

@@ -6,19 +6,10 @@
   "type": "object",
   "definitions": {
     "align": {
-      "oneOf": [{
+      "oneOf": [
+        {
           "type": "string",
-          "enum": [
-            "L",
-            "N",
-            "NX",
-            "NY",
-            "C",
-            "G",
-            "E",
-            "U",
-            "A"
-          ]
+          "enum": ["L", "N", "NX", "NY", "C", "G", "E", "U", "A"]
         },
         {
           "type": "object",
@@ -52,7 +43,8 @@
       ]
     },
     "acItem": {
-      "oneOf": [{
+      "oneOf": [
+        {
           "type": "object",
           "properties": {
             "ac": {
@@ -97,7 +89,8 @@
           "type": "string"
         },
         "shortName": {
-          "oneOf": [{
+          "oneOf": [
+            {
               "description": "Used anywhere a shortened form of the creatures name is required (e.g. in legendary action headers). If not supplied, a shortened name will be automatically generated from the creature's full name.",
               "type": "string"
             },
@@ -123,24 +116,14 @@
         },
         "size": {
           "type": "string",
-          "enum": [
-            "F",
-            "D",
-            "T",
-            "S",
-            "M",
-            "L",
-            "H",
-            "G",
-            "C",
-            "V"
-          ]
+          "enum": ["F", "D", "T", "S", "M", "L", "H", "G", "C", "V"]
         },
         "sizeNote": {
           "type": "string"
         },
         "type": {
-          "oneOf": [{
+          "oneOf": [
+            {
               "type": "object",
               "properties": {
                 "type": {
@@ -148,24 +131,14 @@
                 },
                 "swarmSize": {
                   "type": "string",
-                  "enum": [
-                    "F",
-                    "D",
-                    "T",
-                    "S",
-                    "M",
-                    "L",
-                    "H",
-                    "G",
-                    "C",
-                    "V"
-                  ]
+                  "enum": ["F", "D", "T", "S", "M", "L", "H", "G", "C", "V"]
                 },
                 "tags": {
                   "type": "array",
                   "uniqueItems": true,
                   "items": {
-                    "oneOf": [{
+                    "oneOf": [
+                      {
                         "type": "string"
                       },
                       {
@@ -178,19 +151,14 @@
                             "type": "string"
                           }
                         },
-                        "required": [
-                          "tag",
-                          "prefix"
-                        ],
+                        "required": ["tag", "prefix"],
                         "additionalProperties": false
                       }
                     ]
                   }
                 }
               },
-              "required": [
-                "type"
-              ],
+              "required": ["type"],
               "additionalProperties": false
             },
             {
@@ -214,9 +182,7 @@
                 "$ref": "entry.json"
               }
             },
-            "required": [
-              "entry"
-            ],
+            "required": ["entry"],
             "additionalProperties": false
           }
         },
@@ -233,7 +199,8 @@
           }
         },
         "hp": {
-          "oneOf": [{
+          "oneOf": [
+            {
               "type": "object",
               "properties": {
                 "average": {
@@ -435,7 +402,8 @@
           "additionalProperties": false
         },
         "senses": {
-          "oneOf": [{
+          "oneOf": [
+            {
               "type": "array",
               "items": {
                 "type": "string"
@@ -450,7 +418,8 @@
           "type": "integer"
         },
         "languages": {
-          "oneOf": [{
+          "oneOf": [
+            {
               "type": "array",
               "items": {
                 "type": "string"
@@ -462,7 +431,8 @@
           ]
         },
         "cr": {
-          "oneOf": [{
+          "oneOf": [
+            {
               "type": "string"
             },
             {
@@ -496,7 +466,8 @@
           "$ref": "util.json#/definitions/conditionImmunityArray"
         },
         "spellcasting": {
-          "oneOf": [{
+          "oneOf": [
+            {
               "type": "array",
               "items": {
                 "$ref": "entry.json#/definitions/entrySpellcasting"
@@ -508,7 +479,8 @@
           ]
         },
         "trait": {
-          "oneOf": [{
+          "oneOf": [
+            {
               "type": "array",
               "items": {
                 "type": "object",
@@ -531,10 +503,7 @@
                     "type": "integer"
                   }
                 },
-                "required": [
-                  "name",
-                  "entries"
-                ],
+                "required": ["name", "entries"],
                 "additionalProperties": false
               }
             },
@@ -547,7 +516,8 @@
           "type": "string"
         },
         "action": {
-          "oneOf": [{
+          "oneOf": [
+            {
               "type": "array",
               "items": {
                 "type": "object",
@@ -562,10 +532,7 @@
                     }
                   }
                 },
-                "required": [
-                  "name",
-                  "entries"
-                ],
+                "required": ["name", "entries"],
                 "additionalProperties": false
               }
             },
@@ -589,10 +556,7 @@
                 }
               }
             },
-            "required": [
-              "name",
-              "entries"
-            ],
+            "required": ["name", "entries"],
             "additionalProperties": false
           }
         },
@@ -631,9 +595,7 @@
                 }
               }
             },
-            "required": [
-              "entries"
-            ],
+            "required": ["entries"],
             "additionalProperties": false
           }
         },
@@ -658,9 +620,7 @@
                 }
               }
             },
-            "required": [
-              "entries"
-            ],
+            "required": ["entries"],
             "additionalProperties": false
           }
         },
@@ -746,7 +706,8 @@
         },
         "fluff": {
           "description": "This is intended to be used for Homebrew only - site data should include a fluff file per source",
-          "oneOf": [{
+          "oneOf": [
+            {
               "$ref": "util.json#/definitions/fluffObject"
             },
             {
@@ -810,9 +771,7 @@
         },
         "dragonCastingColor": {
           "type": "string",
-          "enum": [
-            "B", "U", "G", "R", "W", "A", "Z", "C", "O", "S"
-          ]
+          "enum": ["B", "U", "G", "R", "W", "A", "Z", "C", "O", "S"]
         },
         "traitTags": {
           "type": "array",
@@ -881,7 +840,35 @@
           "items": {
             "type": "string",
             "enum": [
-              "AB", "AQ", "AU", "C", "CE", "CS", "D", "DR", "DS", "DU", "E", "G", "GI", "GO", "GTH", "H", "I", "IG", "LF", "O", "OTH", "P", "S", "T", "TC", "TP", "U", "X", "XX"
+              "AB",
+              "AQ",
+              "AU",
+              "C",
+              "CE",
+              "CS",
+              "D",
+              "DR",
+              "DS",
+              "DU",
+              "E",
+              "G",
+              "GI",
+              "GO",
+              "GTH",
+              "H",
+              "I",
+              "IG",
+              "LF",
+              "O",
+              "OTH",
+              "P",
+              "S",
+              "T",
+              "TC",
+              "TP",
+              "U",
+              "X",
+              "XX"
             ]
           }
         },
@@ -896,14 +883,42 @@
           "type": "array",
           "items": {
             "type": "string",
-            "enum": ["P", "I", "F", "S", "CA", "CB", "CC", "CD", "CP", "CR", "CS", "CL", "CW"]
+            "enum": [
+              "P",
+              "I",
+              "F",
+              "S",
+              "CA",
+              "CB",
+              "CC",
+              "CD",
+              "CP",
+              "CR",
+              "CS",
+              "CL",
+              "CW"
+            ]
           }
         },
         "damageTags": {
           "type": "array",
           "items": {
             "type": "string",
-            "enum": ["A", "B", "C", "F", "O", "L", "N", "P", "I", "Y", "R", "S", "T"]
+            "enum": [
+              "A",
+              "B",
+              "C",
+              "F",
+              "O",
+              "L",
+              "N",
+              "P",
+              "I",
+              "Y",
+              "R",
+              "S",
+              "T"
+            ]
           }
         },
         "miscTags": {
@@ -944,35 +959,44 @@
     },
 
     "creature": {
-      "oneOf": [{
-        "$comment": "if does not define a _copy key, then it must constitute a valid creature.",
-        "allOf": [{
-          "$ref": "#/definitions/creatureData"
-        }, {
-          "required": [
-            "name",
-            "size",
-            "type",
-            "source",
-            "ac",
-            "hp",
-            "speed",
-            "str",
-            "dex",
-            "con",
-            "int",
-            "wis",
-            "cha",
-            "passive"
+      "oneOf": [
+        {
+          "$comment": "if does not define a _copy key, then it must constitute a valid creature.",
+          "allOf": [
+            {
+              "$ref": "#/definitions/creatureData"
+            },
+            {
+              "required": [
+                "name",
+                "size",
+                "type",
+                "source",
+                "ac",
+                "hp",
+                "speed",
+                "str",
+                "dex",
+                "con",
+                "int",
+                "wis",
+                "cha",
+                "passive"
+              ]
+            }
           ]
-        }]
-      }, {
-        "allOf": [{
-          "$ref": "#/definitions/creatureData"
-        }, {
-          "required": ["_copy"]
-        }]
-      }]
+        },
+        {
+          "allOf": [
+            {
+              "$ref": "#/definitions/creatureData"
+            },
+            {
+              "required": ["_copy"]
+            }
+          ]
+        }
+      ]
     }
   },
   "properties": {
