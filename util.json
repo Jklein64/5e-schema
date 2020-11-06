@@ -4,7 +4,7 @@
 
   "title": "Util",
   "description": "Utility definitions to be used in other schemas.",
-  "version": "1.0.15",
+  "version": "1.0.18",
 
   "definitions": {
     "metaBlock": {
@@ -139,6 +139,78 @@
           },
           "other": {
             "type": "boolean"
+          }
+        }
+      }
+    },
+
+    "toolProficiencies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "artisan's tools": {
+            "type": "boolean"
+          },
+          "cartographer's tools": {
+            "type": "boolean"
+          },
+          "disguise kit": {
+            "type": "boolean"
+          },
+          "forgery kit": {
+            "type": "boolean"
+          },
+          "gaming set": {
+            "type": "boolean"
+          },
+          "herbalism kit": {
+            "type": "boolean"
+          },
+          "musical instrument": {
+            "type": "boolean"
+          },
+          "navigator's tools": {
+            "type": "boolean"
+          },
+          "thieves' tools": {
+            "type": "boolean"
+          },
+          "vehicles (land)": {
+            "type": "boolean"
+          },
+          "vehicles (water)": {
+            "type": "boolean"
+          },
+          "any": {
+            "type": "integer"
+          },
+          "choose": {
+            "type": "object",
+            "properties": {
+              "from": {
+                "type": "array",
+                "items": {
+                  "enum": [
+                    "artisan's tools",
+                    "cartographer's tools",
+                    "disguise kit",
+                    "forgery kit",
+                    "gaming set",
+                    "herbalism kit",
+                    "musical instrument",
+                    "navigator's tools",
+                    "thieves' tools",
+                    "vehicles (land)",
+                    "vehicles (water)",
+                    "alchemist's supplies"
+                  ]
+                }
+              },
+              "count": {
+                "type": "integer"
+              }
+            }
           }
         }
       }
@@ -491,6 +563,10 @@
           "spellcasting": {
             "type": "boolean"
           },
+          "spellcasting2020": {
+            "description": "Renders with the updated text found in UA2020: Feats",
+            "type": "boolean"
+          },
           "psionics": {
             "type": "boolean"
           },
@@ -502,9 +578,12 @@
                 "armor": {
                   "type": "string",
                   "enum": ["light", "medium", "heavy"]
+                },
+                "weapon": {
+                  "type": "string",
+                  "enum": ["simple", "martial"]
                 }
               },
-              "required": ["armor"],
               "additionalProperties": false
             }
           }
@@ -605,6 +684,9 @@
                   },
                   "note": {
                     "type": "string"
+                  },
+                  "cond": {
+                    "type": "boolean"
                   }
                 },
                 "additionalProperties": false,
@@ -649,6 +731,9 @@
                   },
                   "note": {
                     "type": "string"
+                  },
+                  "cond": {
+                    "type": "boolean"
                   }
                 },
                 "additionalProperties": false,
@@ -693,6 +778,9 @@
                   },
                   "note": {
                     "type": "string"
+                  },
+                  "cond": {
+                    "type": "boolean"
                   }
                 },
                 "additionalProperties": false,
@@ -780,9 +868,6 @@
               "$ref": "entry.json"
             }
           }
-        },
-        "_copy": {
-          "$ref": "util.json#/definitions/innerCopyBlock"
         }
       },
       "additionalProperties": false
@@ -791,10 +876,10 @@
     "genericFluffArray": {
       "type": "array",
       "items": {
-        "oneOf": [
+        "anyOf": [
           {
             "type": "object",
-            "allOf": [
+            "$$merge": [
               {
                 "$ref": "#/definitions/genericFluffArrayItemData"
               },
@@ -805,12 +890,13 @@
           },
           {
             "type": "object",
-            "allOf": [
+            "$comment": "This is a custom pre-processor tag, which merges together the array of objects into one. This allows proper inheritance, which JSON schema don't really do.",
+            "$$merge": [
               {
                 "$ref": "#/definitions/genericFluffArrayItemData"
               },
               {
-                "required": ["_copy"]
+                "$ref": "util.json#/definitions/copyBlock"
               }
             ]
           }
@@ -871,11 +957,7 @@
           "properties": {
             "mode": { "const": "prependArr" },
             "items": {
-              "anyOf": [
-                { "type": "string" },
-                { "type": "object" },
-                { "type": "array" }
-              ]
+              "anyOf": [{ "type": "string" }, { "type": "object" }, { "type": "array" }]
             }
           },
           "required": ["items"],
@@ -886,11 +968,7 @@
           "properties": {
             "mode": { "const": "appendArr" },
             "items": {
-              "anyOf": [
-                { "type": "string" },
-                { "type": "object" },
-                { "type": "array" }
-              ]
+              "anyOf": [{ "type": "string" }, { "type": "object" }, { "type": "array" }]
             }
           },
           "required": ["items"],
@@ -901,11 +979,7 @@
           "properties": {
             "mode": { "const": "appendIfNotExistsArr" },
             "items": {
-              "anyOf": [
-                { "type": "string" },
-                { "type": "object" },
-                { "type": "array" }
-              ]
+              "anyOf": [{ "type": "string" }, { "type": "object" }, { "type": "array" }]
             }
           },
           "required": ["items"],
@@ -926,10 +1000,7 @@
                 },
                 {
                   "type": "object",
-                  "properties": {
-                    "regex": { "type": "string" },
-                    "flags": { "type": "string" }
-                  },
+                  "properties": { "regex": { "type": "string" }, "flags": { "type": "string" } },
                   "required": ["regex"],
                   "additionalProperties": false
                 }
@@ -957,10 +1028,7 @@
                 },
                 {
                   "type": "object",
-                  "properties": {
-                    "regex": { "type": "string" },
-                    "flags": { "type": "string" }
-                  },
+                  "properties": { "regex": { "type": "string" }, "flags": { "type": "string" } },
                   "required": ["regex"],
                   "additionalProperties": false
                 }
@@ -979,11 +1047,7 @@
             "mode": { "const": "insertArr" },
             "index": { "type": "integer" },
             "items": {
-              "anyOf": [
-                { "type": "object" },
-                { "type": "string" },
-                { "type": "array" }
-              ]
+              "anyOf": [{ "type": "object" }, { "type": "string" }, { "type": "array" }]
             }
           },
           "required": ["index", "items"],
@@ -1118,6 +1182,24 @@
       ]
     },
 
+    "fluffObject": {
+      "type": "object",
+      "properties": {
+        "entries": {
+          "type": "array",
+          "items": {
+            "$ref": "entry.json"
+          }
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "$ref": "entry.json#/definitions/entryImage"
+          }
+        }
+      }
+    },
+
     "_additionalSpellObject": {
       "patternProperties": {
         "^\\d+$": {
@@ -1162,6 +1244,108 @@
         },
         "additionalProperties": false,
         "minProperties": 1
+      }
+    },
+
+    "startingEquipment": {
+      "description": "Optional well-structured data version of the \"default\" property, for use in applications that require it.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "patternProperties": {
+          ".*": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "description": "An item UID, e.g. \"longsword|phb\"",
+                  "type": "string"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "item": {
+                      "description": "An item UID, e.g. \"longsword|phb\"",
+                      "type": "string"
+                    },
+                    "quantity": {
+                      "type": "integer"
+                    },
+                    "displayName": {
+                      "description": "The display name this item should be given",
+                      "type": "string"
+                    },
+                    "containsValue": {
+                      "description": "The value (in copper pieces) that this piece of equipment contains in coins.",
+                      "type": "integer"
+                    }
+                  },
+                  "required": ["item"],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "equipmentType": {
+                      "type": "string",
+                      "enum": [
+                        "weaponSimple",
+                        "weaponSimpleMelee",
+                        "weaponMartial",
+                        "weaponMartialMelee",
+                        "instrumentMusical",
+                        "armorLight",
+                        "weaponMelee",
+                        "weaponRanged",
+                        "focusSpellcasting",
+                        "setGaming",
+                        "toolArtisan"
+                      ]
+                    },
+                    "quantity": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": ["equipmentType"],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "description": "A value in copper pieces",
+                      "type": "integer"
+                    }
+                  },
+                  "required": ["value"],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "special": {
+                      "description": "The name of a non-statted item, such as \"wooden stake\"",
+                      "type": "string"
+                    },
+                    "quantity": {
+                      "type": "integer"
+                    },
+                    "worthValue": {
+                      "description": "The worth (in copper pieces) of this piece of equipment.",
+                      "type": "integer"
+                    },
+                    "containsValue": {
+                      "description": "The value (in copper pieces) that this piece of equipment contains in coins.",
+                      "type": "integer"
+                    }
+                  },
+                  "required": ["special"],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          }
+        }
       }
     }
   }
